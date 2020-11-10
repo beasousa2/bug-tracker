@@ -7,6 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
+import javax.ws.rs.NotFoundException;
 
 import br.com.bugtracker.dao.UsersDao;
 import br.com.bugtracker.dto.UsersDto;
@@ -28,5 +29,21 @@ public class UsersService {
 	 public void insert(@Valid UsersDto dto) {
 	   	Users user = UsersParser.get().entity(dto);
 	   	dao.insertUser(user);
+	 }
+	 
+	 public void update() {
+		 
+	 }
+	 
+	 public Users userById(Long id) {
+		 Users user = dao.listUserById(id);
+		 if (user == null) {
+			 throw new NotFoundException();
+		 }
+		 return user;
+	}
+	 
+	 public void delete() {
+		 
 	 }
 }

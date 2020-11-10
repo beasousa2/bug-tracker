@@ -24,7 +24,8 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @NamedNativeQueries({
 	@NamedNativeQuery(name = "USER_LIST", query = "SELECT * FROM users", resultClass = Users.class),
 	@NamedNativeQuery(name = "USER_BY_ID", query = ""
-			+ "SELECT * FROM users WHERE id = :id", resultClass = Users.class),
+			+ "SELECT id, name, email, companyPosition, "
+			+ "role FROM users WHERE id = :id", resultClass = Users.class),
 	@NamedNativeQuery(name = "INSERT_USER", query = ""
 			+ "INSERT INTO users (name, email, companyPosition, role) "
 			+ "VALUES (:name, :email, :companyPosition, :role)"),

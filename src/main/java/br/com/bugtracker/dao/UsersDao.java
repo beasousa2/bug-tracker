@@ -23,7 +23,6 @@ public class UsersDao {
 	private void insertOrUpdate(String querySql, Users user) {
 		Query query = entity.createNamedQuery(querySql);
 		
-		query.setParameter("id", user.getId());
 		query.setParameter("name", user.getName());
 		query.setParameter("email", user.getEmail());
 		query.setParameter("companyPosition", user.getCompanyPosition());
